@@ -13,7 +13,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="App-header">
-            <h1>Messagerie for LeBonCoin</h1>
+            <h1>Messagerie for leboncoin</h1>
           </div>
           <nav className="App-nav">
             <Link to='/' >Messages</Link>

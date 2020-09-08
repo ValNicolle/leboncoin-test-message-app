@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
 .App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #cecece;
+  background-color: #e8e8e8;
+  font-family: 'Open Sans';
 }
 
 .App-header {
-  background-color: #262626;
+  background-color: #FF6E14;
   overflow: visible;
   width: 100%;
   text-align: center;
@@ -55,7 +58,11 @@
 }
 
 .Messages-message:hover {
-  background-color: #acbfff;
+  background-color: #d2d2d2;
+}
+
+.Messages-message:hover .readMore{
+  color: blue;
 }
 
 @keyframes fadeFromBottom {
@@ -165,7 +172,7 @@ textarea {
 }
 
 select{
-  border: 1px solid orangered;
+  border: 1px solid #FF6E14;
   background-color: gainsboro;
   margin-bottom: 20px;
   border-radius: 0;
@@ -176,7 +183,7 @@ select{
 button {
   padding: 5px 10px;
   font-size: 16px;
-  background-color: orangered;
+  background-color: #FF6E14;
   color: white;
   border: none;
   width: 300px;

@@ -3,7 +3,6 @@ import * as api from './API/api_functions.js'
 
 class Input extends Component {
 	state = {
-		messages: api.getAllMessages(),
 		sent: false,
 		text: "",
 		selectedStatus: "public",
@@ -14,6 +13,7 @@ class Input extends Component {
 	    }
 	}
 
+	//Generate a random ID for the User (for tests only)
 	generateId() { 
 	  // Math.random should be unique because of its seeding algorithm.
 	  // Convert it to base 36 (numbers + letters), and grab the first 9 characters
@@ -33,15 +33,11 @@ class Input extends Component {
 		e.preventDefault()
 		this.setState({text: ""})
 
-		const messages = this.state.messages
+		// Send new data
 		const newId = this.generateId()
-	    messages.push({
-	      text: this.state.text,
-	      status: this.state.selectedStatus,
-	      messageId: newId,
-	      member: this.state.member
-	    })
-	    this.setState({messages: messages, sent: true})
+		api.addMessage(this.state.text, this.state.selectedStatus, newId, this.state.member)
+		
+	    this.setState({sent: true})
 	}
 
 	newMessageBtn(e) {
