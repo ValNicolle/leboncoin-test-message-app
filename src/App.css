@@ -1,38 +1,188 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #cecece;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #262626;
+  overflow: visible;
+  width: 100%;
+  text-align: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-nav {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.App-nav a {
+  margin: 30px 15px 0;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 15px;
+  border: 2px solid;
+}
+
+.App-nav a:hover {
+  background-color: #e9e9e9;
+}
+
+.Messages-list {
+  padding: 20px 0;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.Messages-message {
+  display: flex;
+  margin-top: 20px;
+  -webkit-animation: fadeFromBottom .3s ease-in-out forwards;
+          animation: fadeFromBottom .3s ease-in-out forwards;
+  background-color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.Messages-message:hover {
+  background-color: #acbfff;
+}
+
+@keyframes fadeFromBottom {
+  0%{
+    opacity: 0;
+    transform: translate3d(0,15px,0);
   }
-  to {
-    transform: rotate(360deg);
+  100%{
+    opacity: 1;
+    transform: translate3d(0,0,0);
   }
+}
+@-webkit-keyframes fadeFromBottom {
+  0%{
+    opacity: 0;
+    transform: translate3d(0,15px,0);
+  }
+  100%{
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+}
+
+.Messages-message.privateMessage .text {
+  opacity: .7;
+}
+
+.Messages-message.privateMessage .text:after {
+  content: "private";
+  position: absolute;
+  color: black;
+  font-size: 0.7em;
+  top: 35px;
+  right: 10px;
+}
+
+.Message-content {
+  display: inline-block;
+  width: 100%;
+}
+
+.currentMember > .Message-content {
+  align-items: flex-end;
+}
+
+.Messages-message .avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 10px -10px;
+}
+
+.Message-content > .username {
+  display: inline-block;
+  color: gray;
+  font-size: 14px;
+  padding-bottom: 4px;
+}
+
+.Message-content > .text {
+  padding: 10px;
+  margin: 0;
+  border-radius: 12px;
+  color: black;
+  display: block;
+}
+
+.currentMember {
+  background-color: #FFD4C6;
+}
+
+.Message-content > .readMore {
+  text-align: center;
+  font-size: .7em;
+  color: #a5a5a5;
+}
+
+.Message-single{
+  max-width: 600px;
+  margin: 50px auto 0;
+  cursor: initial;
+  box-shadow: 0 0 15px #b3b3b3;
+}
+
+.Message-single:hover{
+  background-color: white;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 30px auto 40px;
+
+}
+
+textarea {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid black;
+  flex-grow: 1;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+select{
+  border: 1px solid orangered;
+  background-color: gainsboro;
+  margin-bottom: 20px;
+  border-radius: 0;
+  width: 300px;
+  font-size: 14px;
+}
+
+button {
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: orangered;
+  color: white;
+  border: none;
+  width: 300px;
+}
+
+.messageSent{
+  text-align: center;
+  margin-top: 30px;
 }
