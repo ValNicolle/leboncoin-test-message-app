@@ -17,7 +17,6 @@ function Messages(){
 	// Rendering of a single message
 	function renderMessage(message, index, filter) {
 	  const {member, text, status, messageId} = message;
-	  
 
 	  // Filter messages by status Public or Private
 	  if(status !== filter){
